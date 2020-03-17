@@ -19,14 +19,14 @@ router.post('/publish', function(req, res, next) {
 		      throw error1;
 		    }
 		    var queue = 'user-message';
-		    var msg = 'Hello world';
+		    var msg = 'Produto1, Produto2, Produto3';
 
 		    channel.assertQueue(queue, {
 		      durable: true
 		    });
 
 		    channel.sendToQueue(queue, Buffer.from(msg));
-		    console.log(" [x] Sent %s", msg);
+		    console.log(" [x] Enviado %s", msg);
 		  });
 		});
 	setTimeout(function() { 
@@ -51,9 +51,9 @@ router.post('/consumer', function(req, res, next) {
 		      durable: true
 		    });
 
-		    console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", queue);
+		    console.log(" [*] Aguardando mensagens %s. To exit press CTRL+C", queue);
 			channel.consume(queue, function(msg) {
-  				console.log(" [x] Received %s", msg.content.toString());
+  				console.log(" [x] Recebendo %s", msg.content.toString());
 			}, {
     			noAck: true
   			});
