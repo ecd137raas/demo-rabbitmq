@@ -1,9 +1,8 @@
 const express = require('express');
-var app = express();
 const router = express.Router();
-
+var app = express();
 //Rotas
-const index = require('./routes/index')
+const index = require('./routes')
 
 app.use('/', index);
 

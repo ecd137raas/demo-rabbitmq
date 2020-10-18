@@ -29,10 +29,6 @@ router.post('/publish', function(req, res, next) {
 		    console.log(" [x] Enviado %s", msg);
 		  });
 		});
-	setTimeout(function() { 
-  		connection.close(); 
-  		process.exit(0) 
-  	}, 500);
 
 });
 
